@@ -12,6 +12,7 @@ AC_PROG_RANLIB
 AC_PROG_CC
 
 PKG_CHECK_MODULES([patts], [patts])
+PKG_CHECK_MODULES([sqon], [sqon])
 
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([Makefile])

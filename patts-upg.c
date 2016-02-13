@@ -15,7 +15,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <inttypes.h>
+#include <sqon.h>
 #include <stdio.h>
 #include <string.h>
 
@@ -54,6 +54,21 @@ License AGPLv3: GNU AGPL version 3 only <http://gnu.org/licenses/agpl.html>.\n\
 This is libre software: you are free to change and redistribute it.\n\
 There is NO WARRANTY, to the extent permitted by law.\n\n\
 Written by David McMackins II."
+
+static void
+trim (char *s)
+{
+  while ('\0' != *s)
+    {
+      if ('\n' == *s)
+	{
+	  *s = '\0';
+	  break;
+	}
+
+      ++s;
+    }
+}
 
 int
 main (int argc, char *argv[])
@@ -151,6 +166,7 @@ main (int argc, char *argv[])
 	  goto end;
 	}
 
+      trim (host);
       if (strlen (host) == 0)
 	strcpy (host, "localhost");
     }
@@ -174,6 +190,7 @@ main (int argc, char *argv[])
 	  goto end;
 	}
 
+      trim (user);
       if (strlen (user) == 0)
 	strcpy (user, "root");
     }
@@ -226,9 +243,12 @@ main (int argc, char *argv[])
 	  goto end;
 	}
 
+      trim (database);
       if (strlen (check) == 0)
 	strcpy (database, "patts");
     }
+
+  sqon_init ();
 
   rc = patts_upgrade_db (db_type, host, user, passwd, database, port);
   if (rc)
