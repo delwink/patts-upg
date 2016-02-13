@@ -1,0 +1,51 @@
+patts-upg
+=========
+
+Simple tool to upgrade PATTS databases.
+
+To Build
+--------
+
+First, you must install libpatts. You can [download it from Delwink][1] or
+through your package manager if your operating system has a package for it.
+
+After installing libpatts, you can take the following steps:
+
+    $ ./autogen.sh
+    $ ./configure
+    $ make
+
+The program will be compiled and runnable in the current directory.
+
+To Install
+----------
+
+After following the build instructions above, you can run
+
+    # make install
+
+to install it to the system.
+
+Usage
+-----
+
+patts-upg has a simple command-line interface. You can use the CLI options to
+set details, or patts-upg will ask you for any additional information it needs
+to perform the upgrade.
+
+See `patts-upg --help` for a full list of options.
+
+Hacking
+-------
+
+patts-upg uses the GNU coding style for C with a strict 79-column limit. Tabs
+in indentation may be used in place of 8 spaces.
+
+License
+-------
+
+patts-upg is libre software: you are free to use, modify, and redistribute the
+software for any purpose under the terms of version 3 of the GNU Affero General
+Public License. See [COPYING](COPYING) for details.
+
+[1]: http://delwink.com/software/patts.html
