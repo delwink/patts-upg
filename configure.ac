@@ -1,5 +1,5 @@
 AC_PREREQ([2.60])
-AC_INIT([patts-upg],[0.0.0],[support@delwink.com])
+AC_INIT([patts-upg],[0.0.1],[support@delwink.com])
 
 AC_CONFIG_SRCDIR([patts-upg.c])
 AC_CONFIG_AUX_DIR([build-aux])
