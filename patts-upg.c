@@ -48,12 +48,12 @@ OPTIONS:\n\
 \t-p, --port=PORT\t\tUses PORT for connection (overrides default)\n\
 \t-v, --version\t\tPrints version info and exits\n"
 
-#define VERSION_INFO "patts-upg " VERSION_STR "\n\
+#define VERSION_INFO "patts-upg " VERSION_STR " (libpatts %s)\n\
 Copyright (C) 2016 Delwink, LLC\n\
 License AGPLv3: GNU AGPL version 3 only <http://gnu.org/licenses/agpl.html>.\n\
 This is libre software: you are free to change and redistribute it.\n\
 There is NO WARRANTY, to the extent permitted by law.\n\n\
-Written by David McMackins II."
+Written by David McMackins II.\n"
 
 static void
 trim (char *s)
@@ -135,7 +135,7 @@ main (int argc, char *argv[])
 	      break;
 
 	    case 'v':
-	      puts (VERSION_INFO);
+	      printf (VERSION_INFO, patts_get_library_version ());
 	      return 0;
 
 	    case '?':
@@ -265,7 +265,8 @@ main (int argc, char *argv[])
 	}
 
       fprintf (stderr, "patts-upg: Your libpatts version is \"%s\".\n"
-	       "Contact Delwink support for assistance.\n", PATTS_VERSION);
+	       "Contact Delwink support for assistance.\n",
+	       patts_get_library_version ());
       goto end;
     }
 
