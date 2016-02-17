@@ -281,5 +281,5 @@ main (int argc, char *argv[])
   if (free_db)
     free (database);
 
-  return rc;
+  return !!rc;
 }
